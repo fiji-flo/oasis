@@ -62,9 +62,7 @@ function FileManager() {
 FileManager.prototype.makeFileName = function (date) {
     var dateString = date.getUTCFullYear() +
         '-' + (date.getUTCMonth() + 1) +
-        '-' + date.getUTCDate() +
-        '-' + date.getUTCHours() +
-        '-' + date.getUTCMinutes();
+        '-' + date.getUTCDate();
     return FILELOCATION + dateString + '.csv';
 }
 
@@ -92,8 +90,7 @@ FileManager.prototype.closeFile = function () {
 };
 
 FileManager.prototype.isNewDay = function (date) {
-    return this.currentDate.getUTCMinutes() !== date.getUTCMinutes();
-    //return this.currentDate.getUTCDate() !== date.getUTCDate();
+    return this.currentDate.getUTCDate() !== date.getUTCDate();
 }
 
 FileManager.prototype.changeFile = function (date) {
