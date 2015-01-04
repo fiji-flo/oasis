@@ -29,10 +29,10 @@ function readSensor(sensorName) {
     var fileName = SENSORPREFIX + sensorName + '/' + SENORFILENAME;
     var temp = NaN;
     try {
-        var s = fs.readFileSync(fileName);
+        var s = fs.readFileSync(fileName, {encoding: "utf-8"});
         var groups = s.match(SENSORREGEX);
         if (groups !== null) {
-            temp = int(groups[1]);
+            temp = parseInt(groups[1]);
         }
     }
     catch (e) {
@@ -63,7 +63,7 @@ FileManager.prototype.makeFileName = function (date) {
     var dateString = date.getUTCFullYear() +
         '-' + (date.getUTCMonth() + 1) +
         '-' + date.getUTCDate() +
-        '-' + date.getUTCHours();
+        '-' + date.getUTCHours() +
         '-' + date.getUTCMinutes();
     return FILELOCATION + dateString + '.csv';
 }
