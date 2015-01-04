@@ -35,7 +35,7 @@ function readSensor(sensorName) {
             temp = int(groups[1]);
         }
     }
-    catch {
+    catch (e) {
         console.log("unable to read from " + fileName);
     }
     return temp;
