@@ -1,5 +1,5 @@
 var fs = require('fs');
-var RESOLUTION = 1000;
+var RESOLUTION = 60 * 1000;
 var FILELOCATION = '/home/oasis/logs/';
 var SENSORPREFIX = '/sys/bus/w1/devices/';
 var SENSORS = [
