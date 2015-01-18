@@ -1,5 +1,6 @@
 var fs = require('fs');
 var RESOLUTION = 60 * 1000;
+var PIDFILE = '/home/oasis/.oasis.pid';
 var FILELOCATION = '/home/oasis/logs/';
 var SENSORPREFIX = '/sys/bus/w1/devices/';
 var SENSORS = [
@@ -8,6 +9,8 @@ var SENSORS = [
 ];
 var SENORFILENAME = 'w1_slave';
 var SENSORREGEX = /.*\n.*t=(\d+).*/;
+
+fs.writeFileSync(PIDFILE, process.pid, {encoding: "utf-8"});
 
 process.on('message', function (m) {
     console.log("gordon got: " + m.text);
