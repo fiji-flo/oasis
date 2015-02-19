@@ -8,7 +8,7 @@ var SENSORS = [
     '28-000005fe6622'
 ];
 var SENORFILENAME = 'w1_slave';
-var SENSORREGEX = /.*\n.*t=(\d+).*/;
+var SENSORREGEX = /.*\n.*t=(-?\d+).*/;
 
 fs.writeFileSync(PIDFILE, process.pid, {encoding: "utf-8"});
 
